@@ -1,0 +1,19 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+#navbar{
+ display: flex;
+ justify-content: space-between;
+ padding: 10px;
+ background-color: #caa7dc;
+}
+#searchbar{
+    display:flex;
+    margin: 5px;
+}
+button{
+    background-color: #db88d9;
+}
