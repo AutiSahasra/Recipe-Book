@@ -5,6 +5,7 @@ let initmsg=document.querySelector('#initmsg')
 
 async function fetchRecipes(q){
 initmsg.style.display="flex"
+  initmsg.style.color="white";
  initmsg.innerHTML='Loading....';
  const data=await fetch(`https://dummyjson.com/recipes/search?q=${q}`);
  const res= await data.json();//consuming promise
@@ -24,7 +25,7 @@ initmsg.style.display="flex"
     
     recipeDiv.innerHTML=`
     <img src=${reciepe.image}>
-    <h2>Name: ${reciepe.name}</h2>
+    <h2>${reciepe.name}</h2>
     <h3>Cusine: ${reciepe.cuisine}</h3>
     <h3>Calories per serving: ${reciepe.caloriesPerServing}</h3>
     `

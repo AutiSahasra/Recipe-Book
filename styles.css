@@ -29,10 +29,12 @@
     display:flex;
     justify-content: center;
     align-items: center;
+    font-size: 30px;
+    color: aliceblue;
 }
 /*RECIPES STYLING*/
 body{
-background-color: #782d7c;
+background-color: #521f55;
 }
 .container
 {
@@ -69,5 +71,12 @@ background-color: #782d7c;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+    }
+    .container
+    {
+    display: grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin: 15px;
     }
 }
