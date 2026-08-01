@@ -7,9 +7,28 @@ let closepopup=document.querySelector('#closepopup')
 let details=document.querySelector('#details')
 async function showPopUp(reciepe)
 {   
-    details.innerHTML=`
-    <h2>Reciepe Displayed</h2>`
-    popup.style.display="block";
+    details.innerHTML+=`
+    <h1>DETAILS:</h1>
+    `
+    showDetails(reciepe.ingredients,reciepe.instructions)
+    popup.style.display="flex";
+}
+function showDetails(ing,ins)
+{   
+    details.innerHTML+=`<h2>Ingredients: </h2>`
+    for(let i=0;i<ing.length;i++)
+    {
+        details.innerHTML+=`
+        <h3>=>${ing[i]}</h3>
+        `
+    }
+    details.innerHTML+=`<h2>Instructions:</h2>`
+    for(let i=0;i<ins.length;i++)
+    {
+        details.innerHTML+=`
+        <h3>=>${ins[i]}</h3>
+        `
+    }
 }
 
  closepopup.addEventListener('click',(e)=>{
@@ -22,9 +41,15 @@ async function fetchRecipes(q){
 initmsg.style.display="flex"
   initmsg.style.color="white";
  initmsg.innerHTML='Loading....';
+ if(q.length<=3)
+ {  
+    container.innerHTML='';
+    initmsg.innerHTML='Invalid Search';
+    return;
+ }
  const data=await fetch(`https://dummyjson.com/recipes/search?q=${q}`);
  const res= await data.json();//consuming promise
- //console.log(res);
+ console.log(res);
  container.innerHTML='';
  if(res.recipes.length==0)
  {
@@ -48,8 +73,9 @@ initmsg.style.display="flex"
     button.classList.add('viewRecipe');
     button.textContent="View Recipe"
     recipeDiv.appendChild(button);
-    button.addEventListener('click',reciepe=>{
-        showPopUp();
+    button.addEventListener('click',()=>{
+        details.innerHTML=""
+        showPopUp(reciepe);
     })
     container.appendChild(recipeDiv)
  });
