@@ -2,6 +2,21 @@ let searchbtn=document.querySelector('#searchbtn')
 let inputfield=document.querySelector('#inputfield')
 let container=document.querySelector('.container')
 let initmsg=document.querySelector('#initmsg')
+let popup=document.querySelector('.popup')
+let closepopup=document.querySelector('#closepopup')
+let details=document.querySelector('#details')
+async function showPopUp(reciepe)
+{   
+    details.innerHTML=`
+    <h2>Reciepe Displayed</h2>`
+    popup.style.display="block";
+}
+
+ closepopup.addEventListener('click',(e)=>{
+    e.preventDefault();
+    popup.style.display="none";
+ })
+
 
 async function fetchRecipes(q){
 initmsg.style.display="flex"
@@ -29,9 +44,18 @@ initmsg.style.display="flex"
     <h3>Cusine: ${reciepe.cuisine}</h3>
     <h3>Calories per serving: ${reciepe.caloriesPerServing}</h3>
     `
+    let button=document.createElement('button');
+    button.classList.add('viewRecipe');
+    button.textContent="View Recipe"
+    recipeDiv.appendChild(button);
+    button.addEventListener('click',reciepe=>{
+        showPopUp();
+    })
     container.appendChild(recipeDiv)
  });
 }
+
+
 
 searchbtn.addEventListener('click',(e)=>
 {

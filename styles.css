@@ -42,6 +42,7 @@ background-color: #521f55;
     grid-template-columns:repeat(4,1fr);
     gap:15px;
     margin: 15px;
+    place-items: center;
 }
 .reciepeDiv
 {
@@ -49,7 +50,7 @@ background-color: #521f55;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
+    max-width: 350px;
     height: auto;
     background:white;
     border-radius:12px;
@@ -63,7 +64,19 @@ background-color: #521f55;
     height: 180px;
     object-fit: cover;
 }
-
+.viewRecipe
+{
+    color: rgb(23, 9, 32);
+    font-weight:700;
+    background-color:#db88d9;
+    margin:10px auto;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+}
+.popup{
+    display: none;
+}
 @media (max-width: 768px) { /*mobile*/
     #navbar
     {
