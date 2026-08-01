@@ -19,14 +19,14 @@ function showDetails(ing,ins)
     for(let i=0;i<ing.length;i++)
     {
         details.innerHTML+=`
-        <h3>=>${ing[i]}</h3>
+        <h3> - ${ing[i]}</h3>
         `
     }
     details.innerHTML+=`<h2>Instructions:</h2>`
     for(let i=0;i<ins.length;i++)
     {
         details.innerHTML+=`
-        <h3>=>${ins[i]}</h3>
+        <h3> - ${ins[i]}</h3>
         `
     }
 }
